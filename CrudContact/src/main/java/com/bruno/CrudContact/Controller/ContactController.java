@@ -25,6 +25,7 @@ public class ContactController {
 
     @PostMapping
     public Contact create(@RequestBody Contact contact) {
+
         return service.save(contact);
     }
 

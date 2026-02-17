@@ -10,22 +10,25 @@ import java.util.Optional;
 
 @Service
 public class ContactService {
-    @Autowired
-    private ContactRepository repository;
+    private ContactRepository contactRepository;
+
+    public ContactService(ContactRepository contactRepository) {
+        this.contactRepository = contactRepository;
+    }
 
     public List<Contact> findAll() {
-        return repository.findAll();
+        return contactRepository.findAll();
     }
 
     public Contact save(Contact contact) {
-        return repository.save(contact);
+        return contactRepository.save(contact);
     }
 
     public Optional<Contact> findById(Long id) {
-        return repository.findById(id);
+        return contactRepository.findById(id);
     }
 
     public void delete(Long id) {
-        repository.deleteById(id);
+        contactRepository.deleteById(id);
     }
 }
